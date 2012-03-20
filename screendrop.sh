@@ -1,7 +1,5 @@
 #!/bin/bash
 
-POS=0;
-LEN=8;
 str0=`date '+%d%b%y-%N'`;
 str1=$( echo "$str0" | md5sum );
 randstring="${str1:0:8}";
