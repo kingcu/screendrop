@@ -1,10 +1,10 @@
 #!/bin/bash
 
-POS=2;  # Starting from position 2 in the string.
-LEN=8;  # Extract eight characters.
+POS=0;
+LEN=8;
 str0=`date '+%d%b%y-%N'`;
-str1=$( echo "$str0" | md5sum | md5sum );
-randstring="${str1:$POS:$LEN}";
+str1=$( echo "$str0" | md5sum );
+randstring="${str1:0:8}";
 fn="$HOME/Dropbox/Public/screenshot-$randstring.jpg";
 
 import "$fn";
