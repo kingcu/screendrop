@@ -1,0 +1,8 @@
+[Unit]
+Description=Flameshot Uploader Service
+
+[Service]
+ExecStart=/home/kingcu/scripts/flameshot-monitor.sh
+
+[Install]
+WantedBy=default.target
