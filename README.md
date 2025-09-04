@@ -1,6 +1,10 @@
 # S3 screenshots made easy!
-Requires flameshot, xclip, s3cmd
+Requires flameshot, s3cmd. Current version made for wayland
 
-Map to whatever hotkey you want. Update print screen button mapping, or customize. I use alt+shift+4, mapped to command `flameshot gui`
+Put screendrop.sh in a folder `scripts` in your home directory, make it executable.
 
-When you use the ctl+c functionality inside the screenshot UI, a dbus event is sent that is captured by the flameshot-monitor.sh script. That script fires off the screendrop.sh script, which snags the image from the clipboard, uploads it to s3, and then loads the resulting URL into the clipboard for you to paste wherever.
+Map the command `~/.scripts/screendrop.sh` to whatever hotkey you want. Update print screen button mapping, or customize it.
+
+Once you make your selection in flameshot, hit the enter key to trigger flameshot to return the screenshot. When screendrop.sh launches flameshot, it passes the `--raw` option, which means when flameshot returns, the resulting screenshot can be piped in a script.
+
+Older versions of flameshot didn't have this, and older versions of screendrop worked around it by using dbus to capture the screenshot pasted into the clipboard by flameshot. Since flameshot has been updated that workaround is no longer needed. Look in git commit history for older versions if needed.
